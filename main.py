@@ -1,4 +1,4 @@
-import sys, getopt
+import datetime, getopt, sys
 from getpass import getpass
 from stravacookies import StravaCookieFetcher
 
@@ -48,7 +48,7 @@ def main(argv):
 
     email = input('Enter your Strava Email Address: ')
     password = getpass('Enter your Strava Password: ')
-    print("\n")
+    print("")
 
     urlPrefix=f"https://heatmap-external-{server}.strava.com/tiles-auth/{activity}/{color}/{{z}}/{{x}}/{{y}}.png?px={resolution}&"
 
@@ -61,6 +61,9 @@ def main(argv):
         sys.exit(4)
 
     print("Your Strava Heatmap URL is:\n\n" + urlPrefix + cookieString)
+
+    cookieExpiration = (datetime.datetime.now() + datetime.timedelta(days=7)).strftime("%B %-d.")
+    print(f"\nThis URL will expire on {cookieExpiration}")
 
 if __name__ == "__main__":
    main(sys.argv[1:])
