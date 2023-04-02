@@ -51,7 +51,7 @@ def main(argv):
         print("ERROR! Retrieving Strava cookies failed! Are your credentials correct?")
         sys.exit(4)
 
-    print("Your heatmap URL is:\n\n" + urlPrefix + cookieString)
+    print("Your Strava Heatmap URL is:\n\n" + urlPrefix + cookieString)
 
 if __name__ == "__main__":
    main(sys.argv[1:])

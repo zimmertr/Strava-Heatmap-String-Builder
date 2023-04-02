@@ -58,12 +58,12 @@ https://heatmap-external-a.strava.com/tiles-auth/all/hot/{z}/{x}/{y}.png?px=512&
 
 Specifying an alternative heatmap color & activity type:
 ```
-$> python main.py -c blue -a WINTER
+$> python main.py -c blue -a winter
 Enter your Strava Email Address: xqsaxgrnpbffgslmge@tpwlb.com
 Enter your Strava Password:
 
 
-Your heatmap URL is:
+Your Strava Heatmap URL is:
 
 https://heatmap-external-a.strava.com/tiles-auth/winter/blue/{z}/{x}/{y}.png?px=512&Key-Pair-Id=APKAIDPUN4QMG7VUQPSA&Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vaGVhdG1hcC1leHRlcm5hbC0qLnN0cmF2YS5jb20vKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY4MTMzNTExOH0sIkRhdGVHcmVhdGVyVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjgwMTExMTE4fX19XX0_&Signature=oYuTN2g0hiv4Aoy4kbIgkyhQ36kiuIxY~ParaaqQcXZwOngySj8YQGrFjX480R83Iwqi-vgenTX8uSS9FUenpd-PSKhgwlU6ShrD3ya6P5~7re1zjLiaUR6doJ5mqVm1EK8hNU0XT~QfYLQ0RhIbuNjQL0kumqjOJA3-Bq5MJ9zRhMr~9uy7JRkOCFmCFkqfmCzaDfgJahrVuoe2tNTghm1dxyA5bfmucoSU0dK3rgq0pQ0XuNw9o4R-YeiSc7GMPO9hSvaXrj2RIdmCo8Ot6GfpdaDoiJ7DxMtT3WhjL6I4IFVmf6PRv7mD~c6VPGVOMYB6IimM1wYAnhRaR5txuA__
 ```
