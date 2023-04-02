@@ -39,15 +39,19 @@ def main(argv):
 
     email = input('Enter your Strava Email Address: ')
     password = getpass('Enter your Strava Password: ')
+    print("\n")
 
     urlPrefix=f"https://heatmap-external-{server}.strava.com/tiles-auth/{activity}/{color}/{{z}}/{{x}}/{{y}}.png?px={resolution}&"
-    print(urlPrefix)
 
-    stravaCookieFetcher = StravaCookieFetcher()
-    stravaCookieFetcher.fetchCookies(email, password)
-    cookieString = stravaCookieFetcher.getCookieString()
+    try:
+        stravaCookieFetcher = StravaCookieFetcher()
+        stravaCookieFetcher.fetchCookies(email, password)
+        cookieString = stravaCookieFetcher.getCookieString()
+    except:
+        print("ERROR! Retrieving Strava cookies failed! Are your credentials correct?")
+        sys.exit(4)
 
-    print("\nYour heatmap URL is:\n\n" + urlPrefix + cookieString)
+    print("Your heatmap URL is:\n\n" + urlPrefix + cookieString)
 
 if __name__ == "__main__":
    main(sys.argv[1:])
