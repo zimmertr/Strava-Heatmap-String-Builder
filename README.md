@@ -75,3 +75,5 @@ https://heatmap-external-a.strava.com/tiles-auth/winter/blue/{z}/{x}/{y}.png?px=
 2. Strava will disable your account if you attempt to authenticate too many times in a period of time. Be careful not to run this script repeatedly!
 
 3. **DO NOT SHARE** your authentication cookie data with anyone. Using this information, someone can impersonate you and potentially do things like post as you or even delete your account! 
+
+4. This uses the [stravacookies](https://pypi.org/project/stravacookies/) Python package by [solitone](https://github.com/solitone/stravacookies) for retrieving the necessary cookies to provide authenticated access to the Strava Heatmap data.
