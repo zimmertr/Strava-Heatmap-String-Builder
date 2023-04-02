@@ -57,7 +57,7 @@ https://heatmap-external-a.strava.com/tiles-auth/all/hot/{z}/{x}/{y}.png?px=512&
 ```
 
 Specifying an alternative heatmap color & activity type:
-```
+```bash
 $> python main.py -c blue -a winter
 Enter your Strava Email Address: xqsaxgrnpbffgslmge@tpwlb.com
 Enter your Strava Password:
