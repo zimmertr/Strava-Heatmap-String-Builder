@@ -1,9 +1,9 @@
 # Strava Heatmap String Builder
 
-[Summary](#Summary)
-[How to Use](#How-to-Use)
-[Example](#Example)
-[Some Final Considerations](#Some-Final-Considerations)
+* [Summary](#Summary)
+* [How to Use](#How-to-Use)
+* [Example](#Example)
+* [Some Final Considerations](#Some-Final-Considerations)
 
 ## Summary
 
