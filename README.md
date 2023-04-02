@@ -5,8 +5,8 @@
 Strava's Heatmap provides very useful data for discovering unofficial trails & common backcountry routes. This data can be imported as a "Custom Layer" in [Caltopo](https://caltopo.com/). However, doing so requires building a URL string containing configuration & authentication data. This tool assists in the creation of this string.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/zimmertr/StravaHeatmapStringBuilder/main/before.png">
-  <img src="https://raw.githubusercontent.com/zimmertr/StravaHeatmapStringBuilder/main/after.png">
+  <img src="https://raw.githubusercontent.com/zimmertr/StravaHeatmapStringBuilder/main/screenshots/before.png">
+  <img src="https://raw.githubusercontent.com/zimmertr/StravaHeatmapStringBuilder/main/screenshots/after.png">
 </p>
 
 ## How to Use
