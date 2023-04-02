@@ -2,7 +2,7 @@
 
 * [Summary](#Summary)
 * [How to Use](#How-to-Use)
-* [Example](#Example)
+* [Examples](#Examples)
 * [Some Final Considerations](#Some-Final-Considerations)
 
 ## Summary
@@ -42,7 +42,7 @@ Strava's Heatmap provides very useful data for discovering unofficial trails & c
 
 6. Check "Strava Heatmap" in "Your Layers" on the Map Layers sidepanel to activate the Heatmap overlay.
 
-## Example
+## Examples
 
 Using Python & the default configuration:
 ```bash
