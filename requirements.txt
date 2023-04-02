@@ -1,2 +1,4 @@
-browsercookie
-requests
+stravacookies
+getpass
+sys
+getopt

@@ -4,10 +4,10 @@
 
 Strava's Heatmap provides very useful data for discovering unofficial trails & common backcountry routes. This data can be imported as a "Custom Layer" in [Caltopo](https://caltopo.com/). However, doing so requires building a URL string containing configuration & authentication data. This tool assists in the creation of this string.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/zimmertr/StravaHeatmapStringBuilder/main/screenshots/before.png">
-  <img src="https://raw.githubusercontent.com/zimmertr/StravaHeatmapStringBuilder/main/screenshots/after.png">
-</p>
+| Before | After |
+| ------ | ----- |
+| ![Before](https://raw.githubusercontent.com/zimmertr/StravaHeatmapStringBuilder/main/screenshots/before.png?raw=true "Before") | ![After](https://raw.githubusercontent.com/zimmertr/StravaHeatmapStringBuilder/main/screenshots/after.png?raw=true "After") |
+
 
 ## How to Use
 
@@ -19,7 +19,7 @@ Strava's Heatmap provides very useful data for discovering unofficial trails & c
    | -s       | The Heatmap Server to Use                              | `[a, b, c]`                          | `a`     |
    | -a       | The activity type to show on the Strava Heatmap data   | `[run, ride, winter, water, all]`    | `all`   |
    | -c       | The color to use for the Strava Heatmap data           | `[blue, bluered, purple, hot, gray]` | `hot`   |
-   | -r       | The tile resolution to use for the Strava Heatmap data | Any integer value                    | `512`   |
+   | -r       | The tile resolution to use for the Strava Heatmap data | *Any integer value*                  | `512`   |
 
 3. [Create](https://caltopo.com/account/signup) a Caltopo account and sign in.
 
@@ -29,7 +29,7 @@ Strava's Heatmap provides very useful data for discovering unofficial trails & c
    | ------------ | --------------------------- |
    | Type         | `Tile`                      |
    | Name         | `Strava Heatmap`            |
-   | URL Template | >URL Produced Above<        |
+   | URL Template | *URL Produced Above*        |
    | Max Zoom     | `12`                        |
    | Overlay?     | `Yes - Transparent Overlay` |
 
