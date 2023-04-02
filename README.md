@@ -3,7 +3,7 @@
 [Summary](#Summary)
 [How to Use](#How-to-Use)
 [Example](#Example)
-[Common Problems](#Common-Problems)
+[Some Final Considerations](#Some-Final-Considerations)
 
 ## Summary
 
@@ -68,7 +68,10 @@ Your Strava Heatmap URL is:
 https://heatmap-external-a.strava.com/tiles-auth/winter/blue/{z}/{x}/{y}.png?px=512&Key-Pair-Id=APKAIDPUN4QMG7VUQPSA&Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vaGVhdG1hcC1leHRlcm5hbC0qLnN0cmF2YS5jb20vKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY4MTMzNTExOH0sIkRhdGVHcmVhdGVyVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjgwMTExMTE4fX19XX0_&Signature=oYuTN2g0hiv4Aoy4kbIgkyhQ36kiuIxY~ParaaqQcXZwOngySj8YQGrFjX480R83Iwqi-vgenTX8uSS9FUenpd-PSKhgwlU6ShrD3ya6P5~7re1zjLiaUR6doJ5mqVm1EK8hNU0XT~QfYLQ0RhIbuNjQL0kumqjOJA3-Bq5MJ9zRhMr~9uy7JRkOCFmCFkqfmCzaDfgJahrVuoe2tNTghm1dxyA5bfmucoSU0dK3rgq0pQ0XuNw9o4R-YeiSc7GMPO9hSvaXrj2RIdmCo8Ot6GfpdaDoiJ7DxMtT3WhjL6I4IFVmf6PRv7mD~c6VPGVOMYB6IimM1wYAnhRaR5txuA__
 ```
 
-## Common Problems
+## Some Final Considerations
 
 1. Strava expires its authentication cookies after approximately one week. If your Heatmap layer stops appearing when you check the box, you will need to regenerate your authentication cookies and build a new URL. To update the URL in Caltopo, simply navigate to `Add -> Custom Source` again and click `Load From`. Select your previous Strava Heatmap layer, update the `URL Template` data with the new URL, give it a new `Name` to differentiate it from the old one, click `Save To Account`. You will now have two available layers, only one of which will work. To delete the old one, click `Your Data` on the top right of Caltopo, navigate to `Your Layers`, and delete the old one by clicking the red `X`. Then refresh the webpage to reload the available layers. 
+
 2. Strava will disable your account if you attempt to authenticate too many times in a period of time. Be careful not to run this script repeatedly!
+
+3. **DO NOT SHARE** your authentication cookie data with anyone. Using this information, someone can impersonate you and potentially do things like delete your account! 
