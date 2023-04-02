@@ -44,7 +44,7 @@ Strava's Heatmap provides very useful data for discovering unofficial trails & c
 
 ## Example
 
-Using default configuration:
+Using Python & the default configuration:
 ```bash
 $> python main.py
 Enter your Strava Email Address: xqsaxgrnpbffgslmge@tpwlb.com
@@ -56,9 +56,9 @@ Your heatmap URL is:
 https://heatmap-external-a.strava.com/tiles-auth/all/hot/{z}/{x}/{y}.png?px=512&Key-Pair-Id=APKAIDPUN4QMG7VUQPSA&Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vaGVhdG1hcC1leHRlcm5hbC0qLnN0cmF2YS5jb20vKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY4MTMzNTA4OX0sIkRhdGVHcmVhdGVyVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjgwMTExMDg5fX19XX0_&Signature=eyeaRSIwev0ev1xV7eNMX-vnKdrpcV4FDhakfhBt6tNQdKOLilyVU6ngvOvur5VMxuXGir~ogvDdjZtCuyI-rWrwu2REVyj7vKLN5v5e5WcBK8XPaLr4dOHhlvfzZJvKw3AG9w0EgIFszKHZuBHbwA6Sl9dTO5NarOaMtZnVIvpGqRnZxGoBlGQROs-qsUFO9cjkRxWK-sgadRBGnH8vR9WTGcvO-mbdzKKfCMb9j8TTOzFyAbUEZJDHtkHYi-y9KHEhQtL9ZvwLu-xpX0rEgAcjfrO3CoaNaAmOdqhgedK5uWK42Y15ozRqsgEt~c2VzqnYZW4mljhO7339IYNtPw__
 ```
 
-Specifying an alternative heatmap color & activity type:
+Using Docker & optional configuration arguments:
 ```bash
-$> python main.py -c blue -a winter
+$> docker run -it $(docker build -q .) -c blue -a winter
 Enter your Strava Email Address: xqsaxgrnpbffgslmge@tpwlb.com
 Enter your Strava Password:
 
