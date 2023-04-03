@@ -11,7 +11,7 @@ def buildPrefix(argv):
     server = "a"
     activity = "all"
     color = "hot"
-    resolution = 512
+    resolution = 256
     useTMSFormat = False
     useOSMFormat = False
 
