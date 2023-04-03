@@ -9,6 +9,8 @@
 
 Strava's Heatmap provides very useful data for discovering unofficial trails & common backcountry routes. This data can be imported as a "Custom Layer" in [Caltopo](https://caltopo.com/). However, doing so requires building a URL string containing configuration & authentication data. This tool assists in the creation of this string.
 
+*This tool is intended for building Caltopo strings. For use with OpenStreetMap, you may wish to pass `-p tms: -o`*.
+
 | Before | After |
 | ------ | ----- |
 | ![Before](https://raw.githubusercontent.com/zimmertr/StravaHeatmapStringBuilder/main/screenshots/before.png?raw=true "Before") | ![After](https://raw.githubusercontent.com/zimmertr/StravaHeatmapStringBuilder/main/screenshots/after.png?raw=true "After") |
