@@ -37,15 +37,17 @@ def buildSuffix():
 
     return cookieString
 
-def main():
-    parsedArgs = argParse(sys.argv[1:])
-    urlPrefix = buildPrefix(parsedArgs)
-    urlSuffix = buildSuffix()
-
+def printResponse(urlPrefix, urlSuffix):
     print("Your Strava Heatmap URL is:\n\n" + urlPrefix + urlSuffix)
 
     cookieExpiration = (datetime.datetime.now() + datetime.timedelta(days=7)).strftime("%B %-d.")
     print(f"\nThis URL will expire on {cookieExpiration}")
+
+def main():
+    parsedArgs = argParse(sys.argv[1:])
+    urlPrefix = buildPrefix(parsedArgs)
+    urlSuffix = buildSuffix()
+    printResponse(urlPrefix, urlSuffix)
 
 if __name__ == "__main__":
     main()
