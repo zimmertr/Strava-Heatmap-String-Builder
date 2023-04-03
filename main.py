@@ -16,15 +16,8 @@ def buildPrefix(argv):
     parser.add_argument("-o", dest="useOSMFormat", default=False, action="store_true", help="use OSM format")
     parsedArgs = parser.parse_args(argv)
 
-    server = parsedArgs.server
-    activity = parsedArgs.activity
-    color = parsedArgs.color
-    resolution = parsedArgs.resolution
-    useTMSFormat = parsedArgs.useTMSFormat
-    useOSMFormat = parsedArgs.useOSMFormat
-
-    urlPrefix = "tms:https://heatmap-external-" if useTMSFormat else "https://heatmap-external-"
-    urlPrefix += f"{{switch:a,b,c}}.strava.com/tiles-auth/{activity}/{color}/{{zoom}}/{{x}}/{{y}}.png?px={resolution}&" if useOSMFormat else f"{server}.strava.com/tiles-auth/{activity}/{color}/{{z}}/{{x}}/{{y}}.png?px={resolution}&"
+    urlPrefix = "tms:https://heatmap-external-" if parsedArgs.useTMSFormat else "https://heatmap-external-"
+    urlPrefix += f"{{switch:a,b,c}}.strava.com/tiles-auth/{parsedArgs.activity}/{parsedArgs.color}/{{zoom}}/{{x}}/{{y}}.png?px={parsedArgs.resolution}&" if parsedArgs.useOSMFormat else f"{parsedArgs.server}.strava.com/tiles-auth/{parsedArgs.activity}/{parsedArgs.color}/{{z}}/{{x}}/{{y}}.png?px={parsedArgs.resolution}&"
 
     return urlPrefix
 
