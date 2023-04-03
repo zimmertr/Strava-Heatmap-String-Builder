@@ -5,18 +5,55 @@ from stravacookies import StravaCookieFetcher
 def parseArgs(args):
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("-s", dest="server", choices=["a", "b", "c"], default="a", help="server, one of a, b, c (default: %(default)s)")
-    parser.add_argument("-a", dest="activity", choices=["run", "ride", "winter", "water", "all"], default="all", help="activity, one of run, ride, winter, water, all (default: %(default)s)")
-    parser.add_argument("-c", dest="color", choices=["blue", "bluered", "purple", "hot", "gray"], default="hot", help="color, one of blue, bluered, purple, hot, gray (default: %(default)s)")
-    parser.add_argument("-r", dest="resolution", type=int, default=256, help="resolution, an integer (default: %(default)s)")
-    parser.add_argument("-t", dest="useTMSFormat", default=False, action="store_true", help="use TMS format")
-    parser.add_argument("-o", dest="useOSMFormat", default=False, action="store_true", help="use OSM format")
+    parser.add_argument("-s", 
+        default="a", 
+        dest="server", 
+        choices=["a", "b", "c"], 
+        help="server, one of a, b, c (default: %(default)s)"
+    )
+    parser.add_argument("-a", 
+        default="all", 
+        dest="activity", 
+        choices=["run", "ride", "winter", "water", "all"], 
+        help="activity, one of run, ride, winter, water, all (default: %(default)s)"
+    )
+    parser.add_argument("-c", 
+        default="hot", 
+        dest="color", 
+        choices=["blue", "bluered", "purple", "hot", "gray"], 
+        help="color, one of blue, bluered, purple, hot, gray (default: %(default)s)"
+    )
+    parser.add_argument("-r", 
+        default=256, 
+        dest="resolution", 
+        type=int,  
+        help="resolution, an integer (default: %(default)s)"
+    )
+    parser.add_argument("-t", 
+        default=False, 
+        dest="useTMSFormat", 
+        action="store_true", 
+        help="use TMS format"
+    )
+    parser.add_argument("-o", 
+        default=False, 
+        dest="useOSMFormat", 
+        action="store_true", 
+        help="use OSM format"
+    )
 
     return parser.parse_args()
 
-def buildPrefix(args):
-    urlPrefix = "tms:https://heatmap-external-" if args.useTMSFormat else "https://heatmap-external-"
-    urlPrefix += f"{{switch:a,b,c}}.strava.com/tiles-auth/{args.activity}/{args.color}/{{zoom}}/{{x}}/{{y}}.png?px={args.resolution}&" if args.useOSMFormat else f"{args.server}.strava.com/tiles-auth/{args.activity}/{args.color}/{{z}}/{{x}}/{{y}}.png?px={args.resolution}&"
+def buildPrefix(parsedArgs):
+    urlPrefix = \
+        "tms:https://heatmap-external-" \
+        if parsedArgs.useTMSFormat \
+        else "https://heatmap-external-"
+
+    urlPrefix += \
+        f"{{switch:a,b,c}}.strava.com/tiles-auth/{parsedArgs.activity}/{parsedArgs.color}/{{zoom}}/{{x}}/{{y}}.png?px={parsedArgs.resolution}&" \
+        if parsedArgs.useOSMFormat \
+        else f"{parsedArgs.server}.strava.com/tiles-auth/{parsedArgs.activity}/{parsedArgs.color}/{{z}}/{{x}}/{{y}}.png?px={parsedArgs.resolution}&"
 
     return urlPrefix
 
