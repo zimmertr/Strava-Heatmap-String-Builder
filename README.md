@@ -25,7 +25,8 @@ Strava's Heatmap provides very useful data for discovering unofficial trails & c
    | -a       | The activity type to show on the Strava Heatmap data   | `[run, ride, winter, water, all]`    | `all`   |
    | -c       | The color to use for the Strava Heatmap data           | `[blue, bluered, purple, hot, gray]` | `hot`   |
    | -r       | The tile resolution to use for the Strava Heatmap data | *Any integer value*                  | `512`   |
-
+   | -p       | Pass to additionally include a prefix in the URL       | *Any string value*                   | `$NULL` |
+   
 3. [Create](https://caltopo.com/account/signup) a Caltopo account and sign in.
 
 4. Add a [Custom Map Layer](https://blog.caltopo.com/2014/04/25/custom-map-layers/) in Caltopo using the following properties:

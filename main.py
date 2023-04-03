@@ -6,15 +6,16 @@ def main(argv):
     validServers = ["a", "b", "c"]
     validActivities = ["run", "ride", "winter", "water", "all"]
     validColors = ["blue", "bluered", "purple", "hot", "gray"]
-    validArguments = ["-s $SERVER", "-a $ACTIVITY", "-c $COLOR", "-r $RESOLUTION"]
+    validArguments = ["-s $SERVER", "-a $ACTIVITY", "-c $COLOR", "-r $RESOLUTION", "-p $PREFIX"]
 
     server = "a"
     activity = "all"
     color = "hot"
     resolution = 512
+    prefix = ""
 
     try:
-        opts, args = getopt.getopt(argv, "s:a:c:r:")
+        opts, args = getopt.getopt(argv, "s:a:c:r:p:")
     except getopt.GetoptError:
         print(f"ERROR! Invalid arguments! Accepted values are: {validArguments}")
         sys.exit(2)
@@ -44,13 +45,15 @@ def main(argv):
             except ValueError:
                 print("ERROR! Invalid resolution! Accepted values are integers!")
                 sys.exit(3)
+        elif opt == "-p":
+            prefix = arg.lower()
 
 
     email = input('Enter your Strava Email Address: ')
     password = getpass('Enter your Strava Password: ')
     print("")
 
-    urlPrefix=f"https://heatmap-external-{server}.strava.com/tiles-auth/{activity}/{color}/{{z}}/{{x}}/{{y}}.png?px={resolution}&"
+    urlPrefix=f"{prefix}https://heatmap-external-{server}.strava.com/tiles-auth/{activity}/{color}/{{z}}/{{x}}/{{y}}.png?px={resolution}&"
 
     try:
         stravaCookieFetcher = StravaCookieFetcher()
