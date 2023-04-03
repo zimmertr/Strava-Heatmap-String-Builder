@@ -21,11 +21,12 @@ Strava's Heatmap provides very useful data for discovering unofficial trails & c
 2. Build a URL string using Python: `python main.py`. You will be prompted for your Strava credentials. Additional optional arguments are documented in the table below:
    | Argument | Description                                            | Allowed Values                       | Default |
    | -------- | ------------------------------------------------------ | ------------------------------------ | ------- |
-   | -s       | The Heatmap Server to Use                              | `[a, b, c]`                          | `a`     |
+   | -s       | The Heatmap Server to Use (Ignored if also using `-o`) | `[a, b, c]`                          | `a`     |
    | -a       | The activity type to show on the Strava Heatmap data   | `[run, ride, winter, water, all]`    | `all`   |
    | -c       | The color to use for the Strava Heatmap data           | `[blue, bluered, purple, hot, gray]` | `hot`   |
    | -r       | The tile resolution to use for the Strava Heatmap data | *Any integer value*                  | `512`   |
-   | -p       | Pass to additionally include a prefix in the URL       | *Any string value*                   | `$NULL` |
+   | -p       | The prefix to include at the beginning of the URL.     | *Any string value*                   | `$NULL` |
+   | -o       | Whether or not to use OSM format                       | `N/A`                                | `False` |
    
 3. [Create](https://caltopo.com/account/signup) a Caltopo account and sign in.
 
@@ -60,13 +61,13 @@ This URL will expire on April 9.
 
 Using Docker & optional configuration arguments:
 ```bash
-$> docker run -it $(docker build -q .) -c blue -a winter -p tms:
+$> docker run -it $(docker build -q .) -c blue -a winter -p tms: -o
 Enter your Strava Email Address: xqsaxgrnpbffgslmge@tpwlb.com
 Enter your Strava Password:
 
 Your Strava Heatmap URL is:
 
-tms:https://heatmap-external-a.strava.com/tiles-auth/winter/blue/{z}/{x}/{y}.png?px=512&Key-Pair-Id=APKAIDPUN4QMG7VUQPSA&Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vaGVhdG1hcC1leHRlcm5hbC0qLnN0cmF2YS5jb20vKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY4MTMzNTExOH0sIkRhdGVHcmVhdGVyVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjgwMTExMTE4fX19XX0_&Signature=oYuTN2g0hiv4Aoy4kbIgkyhQ36kiuIxY~ParaaqQcXZwOngySj8YQGrFjX480R83Iwqi-vgenTX8uSS9FUenpd-PSKhgwlU6ShrD3ya6P5~7re1zjLiaUR6doJ5mqVm1EK8hNU0XT~QfYLQ0RhIbuNjQL0kumqjOJA3-Bq5MJ9zRhMr~9uy7JRkOCFmCFkqfmCzaDfgJahrVuoe2tNTghm1dxyA5bfmucoSU0dK3rgq0pQ0XuNw9o4R-YeiSc7GMPO9hSvaXrj2RIdmCo8Ot6GfpdaDoiJ7DxMtT3WhjL6I4IFVmf6PRv7mD~c6VPGVOMYB6IimM1wYAnhRaR5txuA__
+tms:https://heatmap-external-{switch:a,b,c}.strava.com/tiles-auth/winter/blue/{zoom}/{x}/{y}.png?px=512&Key-Pair-Id=APKAIDPUN4QMG7VUQPSA&Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vaGVhdG1hcC1leHRlcm5hbC0qLnN0cmF2YS5jb20vKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY4MTMzNTExOH0sIkRhdGVHcmVhdGVyVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjgwMTExMTE4fX19XX0_&Signature=oYuTN2g0hiv4Aoy4kbIgkyhQ36kiuIxY~ParaaqQcXZwOngySj8YQGrFjX480R83Iwqi-vgenTX8uSS9FUenpd-PSKhgwlU6ShrD3ya6P5~7re1zjLiaUR6doJ5mqVm1EK8hNU0XT~QfYLQ0RhIbuNjQL0kumqjOJA3-Bq5MJ9zRhMr~9uy7JRkOCFmCFkqfmCzaDfgJahrVuoe2tNTghm1dxyA5bfmucoSU0dK3rgq0pQ0XuNw9o4R-YeiSc7GMPO9hSvaXrj2RIdmCo8Ot6GfpdaDoiJ7DxMtT3WhjL6I4IFVmf6PRv7mD~c6VPGVOMYB6IimM1wYAnhRaR5txuA__
 
 This URL will expire on April 9.
 ```

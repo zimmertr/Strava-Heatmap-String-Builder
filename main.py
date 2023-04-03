@@ -6,16 +6,17 @@ def main(argv):
     validServers = ["a", "b", "c"]
     validActivities = ["run", "ride", "winter", "water", "all"]
     validColors = ["blue", "bluered", "purple", "hot", "gray"]
-    validArguments = ["-s $SERVER", "-a $ACTIVITY", "-c $COLOR", "-r $RESOLUTION", "-p $PREFIX"]
+    validArguments = ["-s $SERVER", "-a $ACTIVITY", "-c $COLOR", "-r $RESOLUTION", "-p $PREFIX", "-o"]
 
     server = "a"
     activity = "all"
     color = "hot"
     resolution = 512
     prefix = ""
+    useOSMFormat = False
 
     try:
-        opts, args = getopt.getopt(argv, "s:a:c:r:p:")
+        opts, args = getopt.getopt(argv, "s:a:c:r:p:o")
     except getopt.GetoptError:
         print(f"ERROR! Invalid arguments! Accepted values are: {validArguments}")
         sys.exit(2)
@@ -45,6 +46,8 @@ def main(argv):
             except ValueError:
                 print("ERROR! Invalid resolution! Accepted values are integers!")
                 sys.exit(3)
+        elif opt == "-o":
+            useOSMFormat = True
         elif opt == "-p":
             prefix = arg.lower()
 
@@ -53,7 +56,10 @@ def main(argv):
     password = getpass('Enter your Strava Password: ')
     print("")
 
-    urlPrefix=f"{prefix}https://heatmap-external-{server}.strava.com/tiles-auth/{activity}/{color}/{{z}}/{{x}}/{{y}}.png?px={resolution}&"
+    if not useOSMFormat:
+        urlPrefix=f"{prefix}https://heatmap-external-{server}.strava.com/tiles-auth/{activity}/{color}/{{z}}/{{x}}/{{y}}.png?px={resolution}&"
+    else:
+        urlPrefix=f"{prefix}https://heatmap-external-{{switch:a,b,c}}.strava.com/tiles-auth/{activity}/{color}/{{zoom}}/{{x}}/{{y}}.png?px={resolution}&"
 
     try:
         stravaCookieFetcher = StravaCookieFetcher()
