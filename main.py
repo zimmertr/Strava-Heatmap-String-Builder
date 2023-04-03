@@ -23,15 +23,8 @@ def buildPrefix(argv):
     useTMSFormat = parsedArgs.useTMSFormat
     useOSMFormat = parsedArgs.useOSMFormat
 
-    if useTMSFormat:
-        urlPrefix = "tms:https://heatmap-external-"
-    else:
-        urlPrefix = "https://heatmap-external-"
-
-    if useOSMFormat:
-        urlPrefix = urlPrefix + f"{{switch:a,b,c}}.strava.com/tiles-auth/{activity}/{color}/{{zoom}}/{{x}}/{{y}}.png?px={resolution}&"
-    else:
-        urlPrefix = urlPrefix + f"{server}.strava.com/tiles-auth/{activity}/{color}/{{z}}/{{x}}/{{y}}.png?px={resolution}&"
+    urlPrefix = "tms:https://heatmap-external-" if useTMSFormat else "https://heatmap-external-"
+    urlPrefix += f"{{switch:a,b,c}}.strava.com/tiles-auth/{activity}/{color}/{{zoom}}/{{x}}/{{y}}.png?px={resolution}&" if useOSMFormat else f"{server}.strava.com/tiles-auth/{activity}/{color}/{{z}}/{{x}}/{{y}}.png?px={resolution}&"
 
     return urlPrefix
 
