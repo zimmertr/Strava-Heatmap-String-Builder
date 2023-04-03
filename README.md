@@ -26,7 +26,7 @@ Strava's Heatmap provides very useful data for discovering unofficial trails & c
    | -s       | The Heatmap Server to Use (Ignored if also using `-o`) | `[a, b, c]`                          | `a`     |
    | -a       | The activity type to show on the Strava Heatmap data   | `[run, ride, winter, water, all]`    | `all`   |
    | -c       | The color to use for the Strava Heatmap data           | `[blue, bluered, purple, hot, gray]` | `hot`   |
-   | -r       | The tile resolution to use for the Strava Heatmap data | *Any integer value*                  | `512`   |
+   | -r       | The tile resolution to use for the Strava Heatmap data | *Any integer value*                  | `256`   |
    | -t       | Include a `tms:` prefix to the URL                     | `N/A`                                | `False` |
    | -o       | Use OSM Format for URL                                 | `N/A`                                | `False` |
    
