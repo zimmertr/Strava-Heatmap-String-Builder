@@ -1,4 +1,4 @@
-import datetime, getopt, sys
+import argparse, datetime, sys
 from getpass import getpass
 from stravacookies import StravaCookieFetcher
 
@@ -6,50 +6,22 @@ def buildPrefix(argv):
     validServers = ["a", "b", "c"]
     validActivities = ["run", "ride", "winter", "water", "all"]
     validColors = ["blue", "bluered", "purple", "hot", "gray"]
-    validArguments = ["-s $SERVER", "-a $ACTIVITY", "-c $COLOR", "-r $RESOLUTION", "-t", "-o"]
 
-    server = "a"
-    activity = "all"
-    color = "hot"
-    resolution = 256
-    useTMSFormat = False
-    useOSMFormat = False
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-s", dest="server", choices=validServers, default="a", help=f"server, one of {validServers} (default: %(default)s)")
+    parser.add_argument("-a", dest="activity", choices=validActivities, default="all", help=f"activity, one of {validActivities} (default: %(default)s)")
+    parser.add_argument("-c", dest="color", choices=validColors, default="hot", help=f"color, one of {validColors} (default: %(default)s)")
+    parser.add_argument("-r", dest="resolution", type=int, default=256, help="resolution, an integer (default: %(default)s)")
+    parser.add_argument("-t", dest="useTMSFormat", default=False, action="store_true", help="use TMS format")
+    parser.add_argument("-o", dest="useOSMFormat", default=False, action="store_true", help="use OSM format")
+    parsedArgs = parser.parse_args(argv)
 
-    try:
-        opts, args = getopt.getopt(argv, "s:a:c:r:to")
-    except getopt.GetoptError:
-        print(f"ERROR! Invalid arguments! Accepted values are: {validArguments}")
-        sys.exit(2)
-
-    for opt, arg in opts:
-        if opt == "-s":
-            if arg.lower() in validServers:
-                server = arg.lower()
-            else:
-                print(f"ERROR! Invalid server! Accepted values are: {validServers}")
-                sys.exit(3)
-        elif opt == "-a":
-            if arg.lower() in validActivities:
-                activity = arg.lower()
-            else:
-                print(f"ERROR! Invalid activity! Accepted values are: {validActivities}")
-                sys.exit(3)
-        elif opt == "-c":
-            if arg.lower() in validColors:
-                color = arg.lower()
-            else:
-                print(f"ERROR! Invalid color! Accepted values: {validColors}")
-                sys.exit(3)
-        elif opt == "-r":
-            try:
-                resolution = int(arg)
-            except ValueError:
-                print("ERROR! Invalid resolution! Accepted values are integers!")
-                sys.exit(3)
-        elif opt == "-o":
-            useOSMFormat = True
-        elif opt == "-t":
-            useTMSFormat = True
+    server = parsedArgs.server
+    activity = parsedArgs.activity
+    color = parsedArgs.color
+    resolution = parsedArgs.resolution
+    useTMSFormat = parsedArgs.useTMSFormat
+    useOSMFormat = parsedArgs.useOSMFormat
 
     if useTMSFormat:
         urlPrefix = "tms:https://heatmap-external-"
