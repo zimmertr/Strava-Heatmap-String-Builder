@@ -9,7 +9,7 @@
 
 Strava's Heatmap provides very useful data for discovering unofficial trails & common backcountry routes. This data can be imported as a "Custom Layer" in [Caltopo](https://caltopo.com/). However, doing so requires building a URL string containing configuration & authentication data. This tool assists in the creation of this string.
 
-*This tool is intended for Caltopo strings. For use with OpenStreetMap, you may wish to pass `-p tms: -o`*.
+*This tool is intended for Caltopo strings. For use with OpenStreetMap, you may wish to pass `-t -o`*.
 
 | Before | After |
 | ------ | ----- |
@@ -27,8 +27,8 @@ Strava's Heatmap provides very useful data for discovering unofficial trails & c
    | -a       | The activity type to show on the Strava Heatmap data   | `[run, ride, winter, water, all]`    | `all`   |
    | -c       | The color to use for the Strava Heatmap data           | `[blue, bluered, purple, hot, gray]` | `hot`   |
    | -r       | The tile resolution to use for the Strava Heatmap data | *Any integer value*                  | `512`   |
-   | -p       | The prefix to include at the beginning of the URL.     | *Any string value*                   | `$NULL` |
-   | -o       | Whether or not to use OSM format                       | `N/A`                                | `False` |
+   | -t       | Include a `tms:` prefix to the URL                     | `N/A`                                | `False` |
+   | -o       | Use OSM Format for URL                                 | `N/A`                                | `False` |
    
 3. [Create](https://caltopo.com/account/signup) a Caltopo account and sign in.
 
@@ -63,7 +63,7 @@ This URL will expire on April 9.
 
 Using Docker & optional configuration arguments:
 ```bash
-$> docker run -it $(docker build -q .) -c blue -a winter -p tms: -o
+$> docker run -it $(docker build -q .) -c blue -a winter -t -o
 Enter your Strava Email Address: xqsaxgrnpbffgslmge@tpwlb.com
 Enter your Strava Password:
 
