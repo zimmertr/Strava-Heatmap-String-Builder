@@ -1,0 +1,37 @@
+name: Release
+
+# Every merge to main cuts a release through yggdrasil's release module.
+# GitVersion reads the bump from the squash commit's title, the image is pushed
+# to Docker Hub under that version and scanned, and the commit is tagged and
+# released. On a PR the same job runs as a dry run: the job summary says what
+# the merge will release, and nothing is pushed.
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# One release at a time; cancel-in-progress stays false so every merge still
+# releases, in order. Each PR's dry run gets its own group.
+concurrency:
+  group: release-${{ github.event_name == 'pull_request' && github.ref || 'main' }}
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  release:
+    name: Release
+    uses: zimmertr/yggdrasil/.github/workflows/release.yml@95c4f710c3600dba170ed579c0beabab507011b9 # v0.9.2
+    # GitHub refuses to start the run unless the caller grants what the module's
+    # tag job asks for, even on a dry run, which never uses it.
+    permissions:
+      contents: write # the tag and release
+    with:
+      dry-run: ${{ github.event_name == 'pull_request' }}
+      images: '[{"image": "zimmertr/strava-heatmap-string-builder"}]'
+    secrets:
+      dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
+      dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}

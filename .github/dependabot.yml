@@ -1,0 +1,32 @@
+version: 2
+updates:
+  # Each release waits three days before it is proposed, because a patch or
+  # minor merges itself (dependabot-auto-merge.yml). yggdrasil's modules are
+  # pinned here too, and every yggdrasil release bakes three days before its
+  # consumers take it (yggdrasil's record 0023). Security updates don't wait.
+  # Daily, so a release arrives three days after it ships rather than up to
+  # ten. zizmor's pedantic audit asks for seven; record 0023 sets three.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 5
+    cooldown:
+      default-days: 3 # zizmor: ignore[dependabot-cooldown]
+
+  # The Dockerfile's base image, tag and digest together.
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 5
+    cooldown:
+      default-days: 3 # zizmor: ignore[dependabot-cooldown]
+
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 5
+    cooldown:
+      default-days: 3 # zizmor: ignore[dependabot-cooldown]
