@@ -4,8 +4,8 @@ name: Dependabot auto-merge
 # checks pass. Majors wait for TJ. yggdrasil's auto-merge module.
 #
 # The merge is armed with AUTO_MERGE_PAT (a Dependabot secret, since a run
-# Dependabot starts can't read Actions secrets). This repo has no `on: push`
-# workflow, so the token choice starts no release.
+# Dependabot starts can't read Actions secrets), because a merge made with
+# GITHUB_TOKEN would not start release.yml's `on: push`.
 on:
   pull_request:
     branches:
