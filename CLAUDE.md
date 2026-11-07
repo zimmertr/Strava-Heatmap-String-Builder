@@ -2,7 +2,7 @@
 
 A CLI that logs in to Strava and prints a Heatmap tile URL to paste into Caltopo as a custom layer. Start with [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
-This repo took a trimmed set of the files a new project starts with (zimmertr/yggdrasil record 0038). When a change here makes a decision, write its record under `docs/architectural-decision-records/`; when it needs a page `docs/` doesn't have yet, add it in the same PR.
+This repo took a trimmed set of the files a new project starts with (zimmertr/yggdrasil record 0038). When a change here makes a decision, write its record under `docs/architectural-decision-records/`; when it needs a page `docs/` doesn't have yet, add it in the same PR. The issue templates and security policy come from the account's shared `.github` repo (zimmertr/yggdrasil record 0041), so this repo has none of its own.
 
 ## Documentation
 
