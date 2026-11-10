@@ -24,7 +24,7 @@ permissions: {}
 jobs:
   release:
     name: Release
-    uses: zimmertr/yggdrasil/.github/workflows/release.yml@95c4f710c3600dba170ed579c0beabab507011b9 # v0.9.2
+    uses: zimmertr/yggdrasil/.github/workflows/release.yml@d8443185af7a5e3b4b197b8ee167533d79c816c5 # v0.14.0
     # GitHub refuses to start the run unless the caller grants what the module's
     # tag job asks for, even on a dry run, which never uses it.
     permissions:
