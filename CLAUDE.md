@@ -11,14 +11,14 @@ A change that makes any page untrue updates it in the same PR. The README is TJ'
 | Doc | Holds |
 |---|---|
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | What `main.py` asks for and prints, and the Dockerfile |
-| [`docs/CICD.md`](docs/CICD.md) | What CI runs on a PR, the release to Docker Hub, and how Dependabot updates merge |
+| [`docs/CICD.md`](docs/CICD.md) | What CI runs on a PR, the release to GHCR, and how Dependabot updates merge |
 
 ## Rules
 
 - Run everything in Docker, as [`CONTRIBUTING.md`](CONTRIBUTING.md) shows. Nothing installs on the workstation.
 - Never put a Strava credential, cookie or generated URL in the repo, an issue, a PR or a log. The README's example URL is from a throwaway account.
 - The Dockerfile's `FROM` carries a tag and a digest; Dependabot moves both together.
-- Every merge to `main` releases `zimmertr/strava-heatmap-string-builder` to Docker Hub, and the PR title sets the version bump.
+- Every merge to `main` releases `ghcr.io/zimmertr/strava-heatmap-string-builder`, and the PR title sets the version bump.
 - There are no tests yet.
 
 ## Issues

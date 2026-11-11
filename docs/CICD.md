@@ -15,6 +15,6 @@ The smoke test is in `pr.yml`.
 
 ## Release
 
-Every merge to `main` releases. GitVersion reads the bump from the squash commit's title (`feat` is a minor, `fix` a patch, `!` a major). The release module pushes `zimmertr/strava-heatmap-string-builder:<version>` to Docker Hub, scans it, then tags and releases the commit. The pushes use the `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` Actions secrets.
+Every merge to `main` releases. GitVersion reads the bump from the squash commit's title (`feat` is a minor, `fix` a patch, `!` a major). The release module pushes `ghcr.io/zimmertr/strava-heatmap-string-builder:<version>`, scans it, then tags and releases the commit. The push uses the job's own `GITHUB_TOKEN`.
 
 Dependabot proposes updates to the workflow pins, the Dockerfile's base image and `requirements.txt`, daily, after a release is three days old. A patch or minor update merges itself once the required checks pass (`Dependabot auto-merge`); a major waits for TJ.
