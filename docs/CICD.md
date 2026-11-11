@@ -17,4 +17,4 @@ The smoke test is in `pr.yml`.
 
 Every merge to `main` releases. GitVersion reads the bump from the squash commit's title (`feat` is a minor, `fix` a patch, `!` a major). The release module pushes `ghcr.io/zimmertr/strava-heatmap-string-builder:<version>`, scans it, then tags and releases the commit. The push uses the job's own `GITHUB_TOKEN`.
 
-Dependabot proposes updates to the workflow pins, the Dockerfile's base image and `requirements.txt`, daily, after a release is three days old. A patch or minor update merges itself once the required checks pass (`Dependabot auto-merge`); a major waits for TJ.
+Renovate proposes updates to the workflow pins, the Dockerfile's base image and `requirements.txt`, once a release is seven days old. `.github/renovate.json` extends zimmertr/yggdrasil's shared preset (its record 0056), and yggdrasil's own modules don't wait. Everything below a major merges itself once the required checks pass; a major waits for TJ.
