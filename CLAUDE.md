@@ -15,7 +15,7 @@ A change that makes any page untrue updates it in the same PR. The README is TJ'
 
 ## Rules
 
-- Run everything in Docker, as [`CONTRIBUTING.md`](CONTRIBUTING.md) shows. Nothing installs on the workstation.
+- Run everything in Docker, as [`README.md`](README.md) shows. Nothing installs on the workstation.
 - Never put a Strava credential, cookie or generated URL in the repo, an issue, a PR or a log. The README's example URL is from a throwaway account.
 - The Dockerfile's `FROM` carries a tag and a digest; Dependabot moves both together.
 - Every merge to `main` releases `ghcr.io/zimmertr/strava-heatmap-string-builder`, and the PR title sets the version bump.
